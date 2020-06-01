@@ -133,11 +133,26 @@ class Blocks(object):
                     c7_part1 += self.image_grayscale_pixels[x_coordinate, y_coordinate]
                 else:
                     c7_part2 += self.image_grayscale_pixels[x_coordinate, y_coordinate]
+        if (float(c4_part1 + c4_part2)) == 0:
+          characteristic_feature_list.append(0)
+        else :        
+          characteristic_feature_list.append(float(c4_part1) / float(c4_part1 + c4_part2))
 
-        characteristic_feature_list.append(float(c4_part1) / float(c4_part1 + c4_part2))
-        characteristic_feature_list.append(float(c5_part1) / float(c5_part1 + c5_part2))
-        characteristic_feature_list.append(float(c6_part1) / float(c6_part1 + c6_part2))
-        characteristic_feature_list.append(float(c7_part1) / float(c7_part1 + c7_part2))
+        if (float(c5_part1 + c5_part2)) == 0:
+          characteristic_feature_list.append(0)
+        else :
+          characteristic_feature_list.append(float(c5_part1) / float(c5_part1 + c5_part2))
+
+        if (float(c6_part1 + c6_part2)) == 0:
+          characteristic_feature_list.append(0)
+        else :
+          characteristic_feature_list.append(float(c6_part1) / float(c6_part1 + c6_part2))                    
+
+        if (float(c7_part1 + c7_part2)) == 0:
+          characteristic_feature_list.append(0)
+        else :
+          characteristic_feature_list.append(float(c7_part1) / float(c7_part1 + c7_part2))
+      
 
         precise_result = [round(element, precision) for element in characteristic_feature_list]
         return precise_result
